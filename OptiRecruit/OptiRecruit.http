@@ -1,0 +1,6 @@
+@OptiRecruit_HostAddress = http://localhost:5018
+
+GET {{OptiRecruit_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

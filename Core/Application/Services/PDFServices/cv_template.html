@@ -1,0 +1,144 @@
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 30px;
+        line-height: 1.4;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .name {
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .contact {
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+    }
+
+    .divider {
+        border: none;
+        border-top: 1px solid #999;
+        margin: 20px 0;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .section-content {
+        margin-bottom: 20px;
+    }
+
+    .experience-item {
+        margin-bottom: 20px;
+    }
+
+    .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .experience-company {
+        font-weight: normal;
+        color: #444;
+        margin-bottom: 5px;
+    }
+
+    .experience-description {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 5px;
+    }
+
+    .skills-list {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dynamic CV Template</title>
+    <link rel="stylesheet" href="C:\Users\giorgi.kuprava\source\repos\OptiRecruit\Core\Application\Services\style.css" />
+</head>
+<body>
+    <div class="container">
+
+        <!-- NAME & CONTACT -->
+        <div class="name" id="cvName">{{Name}}</div>
+        <div class="contact" id="cvContact">{{ContactLine}}</div>
+        <hr class="divider" />
+
+        <!-- SUMMARY (optional) -->
+        {{#HasSummary}}
+        <div id="summarySection">
+            <div class="section-title">Summary</div>
+            <div class="section-content" id="cvSummary">{{Summary}}</div>
+        </div>
+        {{/HasSummary}}
+
+        <!-- EXPERIENCE (if any) -->
+        {{#HasExperience}}
+        <div id="experienceSection">
+            <div class="section-title">Experience</div>
+            <div id="experienceList">
+                {{#WorkExperiences}}
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span>{{Position}}</span>
+                        <span>{{Duration}}</span>
+                    </div>
+                    <div class="experience-company">{{Company}}</div>
+                    <ul class="experience-description">
+                        {{#DescriptionBullets}}
+                        <li>{{.}}</li>
+                        {{/DescriptionBullets}}
+                    </ul>
+                </div>
+                {{/WorkExperiences}}
+            </div>
+        </div>
+        {{/HasExperience}}
+
+        <!-- SKILLS -->
+        {{#HasSkills}}
+        <hr class="divider" id="skillsDivider" />
+        <div id="skillsSection">
+            <div class="section-title">Skills</div>
+            <ul class="skills-list" id="cvSkills">
+                {{#Skills}}
+                <li>{{.}}</li>
+                {{/Skills}}
+            </ul>
+        </div>
+        {{/HasSkills}}
+
+    </div>
+</body>
+</html>
