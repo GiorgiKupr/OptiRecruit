@@ -1,5 +1,7 @@
 ﻿using Application.Abstraction;
 using Application.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OptiRecruit.API.Controllers
