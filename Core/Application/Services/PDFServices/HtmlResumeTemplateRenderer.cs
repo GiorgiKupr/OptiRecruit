@@ -43,8 +43,8 @@ public class HtmlResumeTemplateRenderer : IHtmlResumeTemplateRenderer
             {
                 sbExp.Append("<div class=\"experience-item\">");
                 sbExp.Append("<div class=\"experience-header\">");
-                sbExp.Append($"<span>{WebUtility.HtmlEncode(exp.Position ?? "")}</span>");
-                sbExp.Append($"<span>{WebUtility.HtmlEncode(exp.Duration ?? "")}</span>");
+                sbExp.Append($"<div class=\"experience-position\">{WebUtility.HtmlEncode(exp.Position ?? "")}</div>");
+                sbExp.Append($"<div class=\"experience-duration\">{WebUtility.HtmlEncode(exp.Duration ?? "")}</div>");
                 sbExp.Append("</div>");
                 sbExp.Append($"<div class=\"experience-company\">{WebUtility.HtmlEncode(exp.Company ?? "")}</div>");
 

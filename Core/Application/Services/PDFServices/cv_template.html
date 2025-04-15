@@ -55,11 +55,23 @@
     .experience-header {
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
+        align-items: center;
         font-size: 16px;
         font-weight: bold;
         margin-bottom: 5px;
+        width: 100%;
     }
+
+    .experience-position {
+        flex: 1;
+        text-align: left;
+    }
+
+    .experience-duration {
+        text-align: right;
+        white-space: nowrap;
+    }
+
 
     .experience-company {
         font-weight: normal;
@@ -111,8 +123,8 @@
                 {{#WorkExperiences}}
                 <div class="experience-item">
                     <div class="experience-header">
-                        <span>{{Position}}</span>
-                        <span>{{Duration}}</span>
+                        <div class="experience-position">{{Position}}</div>
+                        <div class="experience-duration">   {{Duration}}</div>
                     </div>
                     <div class="experience-company">{{Company}}</div>
                     <ul class="experience-description">
